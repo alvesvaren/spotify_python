@@ -1,7 +1,23 @@
+"""
+# spotify dbus
+
+Control your spotify client using dbus!
+
+## Usage
+
+    >>> from spotify import Spotify
+    >>> spotify = Spotify()
+    >>> print(spotify.track)
+    >>> spotify.next()
+
+## Installation
+
+    $ pip install git+https://github.com/alvesvaren/spotify_python
+
+"""
+
+version = "0.0.1"
 import dbus
-
-
-
 
 
 class Spotify:
@@ -13,14 +29,15 @@ class Spotify:
         """
         An object representing a spotify track
         """
+
         def __init__(self, *args, title, artist, art_uri=None):
             self.title = str(title)
             self.artist = str(artist)
             self.art_uri = str(art_uri) if art_uri else art_uri
-        
+
         def __str__(self):
             return f"{self.title} - {self.artist}"
-        
+
         def __repr__(self):
             return f'Spotify.Track(title={repr(self.title)},artist={repr(self.artist)},art_uri={repr(self.art_uri)})'
 
@@ -32,7 +49,7 @@ class Spotify:
             self._obj, dbus_interface="org.mpris.MediaPlayer2.Player")
         self._props_iface = dbus.Interface(
             self._obj, dbus_interface="org.freedesktop.DBus.Properties")
-    
+
     def __repr__(self):
         return f"Spotify(track={repr(self.track)})"
 
