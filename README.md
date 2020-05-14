@@ -3,6 +3,7 @@
 Control your spotify client using an easy-to-use dbus interface!
 
 ## Usage
+
 ```python
 >>> from spotify import Spotify
 >>> spotify = Spotify()
@@ -12,6 +13,7 @@ some song - an artist
 ```
 
 ## Installation
+
 ```bash
 $ pip install git+https://github.com/alvesvaren/spotify_python
 ```
