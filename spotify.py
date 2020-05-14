@@ -13,10 +13,16 @@ class Spotify:
         """
         An object representing a spotify track
         """
-        def __init__(self, *args, title=None, artist=None, art_uri=None):
+        def __init__(self, *args, title, artist, art_uri=None):
             self.title = str(title)
             self.artist = str(artist)
-            self.art_uri = str(art_uri)
+            self.art_uri = str(art_uri) if art_uri else art_uri
+        
+        def __str__(self):
+            return f"{self.title} - {self.artist}"
+        
+        def __repr__(self):
+            return f'Spotify.Track(title={repr(self.title)},artist={repr(self.artist)},art_uri={repr(self.art_uri)})'
 
     def __init__(self):
         self._bus = dbus.SessionBus()
@@ -26,6 +32,9 @@ class Spotify:
             self._obj, dbus_interface="org.mpris.MediaPlayer2.Player")
         self._props_iface = dbus.Interface(
             self._obj, dbus_interface="org.freedesktop.DBus.Properties")
+    
+    def __repr__(self):
+        return f"Spotify(track={repr(self.track)})"
 
     def get_metadata(self) -> dbus.Dictionary:
         """
@@ -68,4 +77,4 @@ class Spotify:
 
 if __name__ == "__main__":
     spotify = Spotify()
-    print("Currently playing:", spotify.track.title, "-", spotify.track.artist)
+    print("Currently playing:", spotify.track)
