@@ -85,6 +85,3 @@ class Spotify:
         return self.Track(title=metadata["xesam:title"], artist=metadata["xesam:artist"][0])
 
 
-if __name__ == "__main__":
-    spotify = Spotify()
-    print("Currently playing:", spotify.track)
