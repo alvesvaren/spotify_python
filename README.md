@@ -7,6 +7,7 @@ Control your spotify client using an easy-to-use dbus interface!
 >>> from spotify import Spotify
 >>> spotify = Spotify()
 >>> print(spotify.track)
+Some song - an artist
 >>> spotify.next()
 ```
 
