@@ -3,7 +3,7 @@ import dbus
 
 class Spotify:
     """
-    A spotify dbus client object to control spotify from python.
+    A spotify dbus client object to control spotify from python
     """
 
     class Track:
@@ -36,33 +36,45 @@ class Spotify:
 
     def get_metadata(self) -> dbus.Dictionary:
         """
-        Returns the raw dbus metadata.
+        Returns the raw dbus metadata
         """
         return self._props_iface.GetAll("org.mpris.MediaPlayer2.Player")["Metadata"]
 
     def play(self):
         """
-        Tells spotify to start playing.
+        Tells spotify to start playing
         """
         self._spotify_iface.Play()
 
     def play_pause(self):
         """
-        Tells spotify to toggle playing.
+        Tells spotify to toggle playing
         """
         self._spotify_iface.PlayPause()
 
     def pause(self):
         """
-        Tells spotify to pause.
+        Tells spotify to pause
         """
         self._spotify_iface.Pause()
 
     def stop(self):
         """
-        Tells spotify to stop playing.
+        Tells spotify to stop playing
         """
         self._spotify_iface.Stop()
+    
+    def next(self):
+        """
+        Tells spotify to skip to the next song
+        """
+        self._spotify_iface.Next()
+    
+    def previous(self):
+        """
+        Tells spotify to skip back to the previous song
+        """
+        self._spotify_iface.Previous()
 
     @property
     def track(self) -> Track:
