@@ -5,7 +5,7 @@ with open("README.md", "r") as file:
 
 setuptools.setup(
     name="spotify_python",
-    version="0.0.1",
+    version="0.0.2",
     author="Alve Svarén",
     author_email="alve@hotmail.se",
     description="A dbus spotify client",
