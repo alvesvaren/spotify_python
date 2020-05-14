@@ -1,6 +1,6 @@
-# spotify dbus
+# Spotify python
 
-Control your spotify client using dbus!
+Control your spotify client using an easy-to-use dbus interface!
 
 ## Usage
 
