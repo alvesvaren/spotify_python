@@ -12,7 +12,7 @@ class Track:
         self.album: str = str(album)  # Track album
         # Track length in seconds (rounded to 5 decimals)
         self.length: float = round(length*(10**-6), 5)
-        self.track_id: str = track_id  # Spotify track id (spotify uri)
+        self.id: str = str(track_id)  # Spotify track id (spotify uri)
         self.art_url: str = str(art_url)  # Spotify art url
 
     def __str__(self):
@@ -23,7 +23,7 @@ class Track:
         for key, value in (
             ("title", self.title), ("artist", self.artist),
             ("album", self.album), ("length", self.length),
-                ("track_id", self.track_id), ("art_url", self.art_url)):
+                ("id", self.id), ("art_url", self.art_url)):
             items.append(f"{key}={repr(value)}")
         return f'Spotify.Track({",".join(items)})'
 
@@ -56,7 +56,7 @@ class Spotify:
 
     def open(self, uri: str):
         """
-        Plays the specified uri in spotify
+        Plays the specified `uri` in spotify
         """
         self._spotify_iface.OpenUri(uri)
 
