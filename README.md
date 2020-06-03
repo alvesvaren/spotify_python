@@ -2,7 +2,7 @@
 
 Control your spotify client using an easy-to-use dbus interface for python 3!
 
-Disclaimer: This only works on DBus-enabled systems, like most linux distrubutions.
+**Disclaimer**: This only works on DBus-enabled systems, like most linux distrubutions.
 
 ## Usage
 
