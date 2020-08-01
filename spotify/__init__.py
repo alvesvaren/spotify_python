@@ -106,7 +106,7 @@ class Spotify:
         return Track(
             title=metadata["xesam:title"], artist=metadata["xesam:artist"][0],
             length=metadata["mpris:length"], track_id=metadata["mpris:trackid"],
-            album=metadata["xesam:album"], art_url=metadata["mpris:artUrl"])
+            album=metadata["xesam:album"])
 
     @property
     def state(self) -> str:
